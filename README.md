@@ -15,6 +15,10 @@ Current design under development. Includes original CAD geometry and FEM-ready s
 | `step_for_fem/` | Simplified STEP files for FEM (holes removed, poles aligned to 1.0 mm tip distance) |
 | `scripts/` | CadQuery/Python preprocessing scripts (fill holes, align poles, verify geometry) |
 
+### `NTU_Hexapole/` — NTU Hexapole Design
+
+Hexapole design from National Taiwan University. Contains SolidWorks source files (.SLDPRT/.SLDASM), STEP exports, and related components (microchannel, sensors, separators, etc.).
+
 ### `long-fei/` — Reference Design (Fei Long 2016)
 
 Reference hexapole from Fei Long's PhD dissertation (Ohio State University, 2016).
@@ -38,7 +42,7 @@ All scripts use [CadQuery](https://cadquery.readthedocs.io/) + OpenCascade. Requ
 
 ## Notes
 
-- Git tracks **STEP files and scripts** — SolidWorks source files (.SLDPRT/.SLDASM) are kept locally
+- Git tracks **STEP files and scripts** — SolidWorks source files (.SLDPRT/.SLDASM) are kept locally (except `NTU_Hexapole/` which includes SolidWorks sources)
 - FEM simulation scripts and post-processing are in a separate repo: [magnetic-tweezers-sim](https://github.com/kevinfan100/magnetic-tweezers-sim)
 
 ## Reference
