@@ -1,23 +1,29 @@
 # magnetic-tweezer-cad
 
-Hexapole magnetic tweezer CAD model repository. Contains two hexapole designs with STEP geometry files for FEM simulation.
+Hexapole magnetic tweezer CAD model repository.
 
 ## Designs
 
-### `hung/` — New Hexapole Design (Hung Lab)
+### `hung/` — Hung Hexapole Design
 
-Current design under development. Includes original CAD geometry and FEM-ready simplified versions.
+6-pole magnetic tweezers with tilted poles on a R=0.5mm sphere at magic angle (54.74°).
 
 | Folder | Contents |
 |--------|----------|
-| `assembly/` | Full assembly STEP |
-| `parts/` | Individual part STEP files (original, with screw holes) |
-| `step_for_fem/` | Simplified STEP files for FEM (holes removed, poles aligned to 1.0 mm tip distance) |
-| `scripts/` | CadQuery/Python preprocessing scripts (fill holes, align poles, verify geometry) |
+| `step_for_fem/` | STEP files for FEM simulation (simplified, holes removed) |
+| `reference/` | Reference materials (drawings, datasheets) |
 
-### `NTU_Hexapole/` — NTU Hexapole Design
+#### Parts in `step_for_fem/`
 
-Hexapole design from National Taiwan University. Contains SolidWorks source files (.SLDPRT/.SLDASM), STEP exports, and related components (microchannel, sensors, separators, etc.).
+| File | Description | Key Dimensions |
+|------|-------------|---------------|
+| `Mag_Pole_Bottom.STEP` | Magnetic pole (D-shape + cone) | R=3.175mm, total=43mm |
+| `pole_upper_block.STEP` | Upper block (L-shape) | 25x22x10mm |
+| `pole_lower_block.STEP` | Lower block (L-shape) | 22x22x10mm |
+| `Mag_Guide_Post.STEP` | Guide post cylinder | R=4mm, H=46mm |
+| `Coil.STEP` | Excitation coil | R_in=10, R_out=12, H=15mm |
+| `Upper_Ring.STEP` | Yoke (iron ring) | R_in=38, R_out=62.5, T=2mm |
+| `Full_Assembly_inch.STEP` | Complete assembly | All parts, inch units |
 
 ### `long-fei/` — Reference Design (Fei Long 2016)
 
@@ -28,22 +34,10 @@ Reference hexapole from Fei Long's PhD dissertation (Ohio State University, 2016
 | `step_for_fem/` | ANSYS-ready model (`MTmodel.step`) |
 | `reference/` | APDL modeling scripts |
 
+## Related Repository
 
-## Scripts (`hung/scripts/`)
-
-All scripts use [CadQuery](https://cadquery.readthedocs.io/) + OpenCascade. Requires Python 3.10+ and `pip install cadquery`.
-
-| Script | Purpose |
-|--------|---------|
-| `fill_holes.py` | Remove screw holes from `parts/` → `step_for_fem/` |
-| `adjust_pole_z.py` | Adjust upper pole positions for 1.0 mm tip-to-tip distance |
-| `verify_tip_alignment.py` | Verify opposing pole pair colinearity |
-| `plot_pole_mapping.m` | MATLAB visualization of pole positions (requires MATLAB R2020a+) |
-
-## Notes
-
-- Git tracks **STEP files and scripts** — SolidWorks source files (.SLDPRT/.SLDASM) are kept locally (except `NTU_Hexapole/` which includes SolidWorks sources)
-- FEM simulation scripts and post-processing are in a separate repo: [magnetic-tweezers-sim](https://github.com/kevinfan100/magnetic-tweezers-sim)
+FEM simulation scripts, MATLAB analysis, and results:
+[magnetic-tweezers-sim](https://github.com/kevinfan100/magnetic-tweezers-sim)
 
 ## Reference
 
